@@ -1,15 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { User } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import MobileNav from '@/components/layout/MobileNav'
 import { navLinks, siteFullName } from '@/data/siteConfig'
-import { useAuth } from '@/context/AuthContext'
 import { cn } from '@/lib/utils'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const { isAuthenticated } = useAuth()
 
   useEffect(() => {
     function onScroll() {
@@ -30,14 +26,14 @@ export default function Navbar() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center gap-2.5 font-serif text-sm font-semibold leading-tight text-charcoal-700 sm:text-base">
-          <img src="/logo.png" alt={siteFullName} className="size-12 shrink-0 rounded-full object-cover" />
-          <span className="max-w-[14rem] sm:max-w-none">
+        <Link to="/" className="flex min-w-0 items-center gap-2.5 font-serif text-sm font-semibold leading-tight text-charcoal-700 sm:text-base">
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt={siteFullName} className="size-12 shrink-0 rounded-full object-cover" />
+          <span className="max-w-[14rem] lg:max-w-[20rem]">
             {siteFullName.replace('Región Metropolitana', 'Región Metropolitana')}
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav aria-label="Navegación principal" className="hidden lg:flex shrink-0 items-center gap-1">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -45,7 +41,7 @@ export default function Navbar() {
               end={link.to === '/'}
               className={({ isActive }) =>
                 cn(
-                  'rounded-full px-4 py-2 text-sm font-medium transition-colors',
+                  'rounded-full px-3 py-2 text-sm font-medium transition-colors',
                   isActive
                     ? 'bg-crimson-50 text-crimson-600'
                     : 'text-charcoal-500 hover:text-charcoal-700'
@@ -56,15 +52,6 @@ export default function Navbar() {
             </NavLink>
           ))}
         </nav>
-
-        <div className="hidden md:block">
-          <Button asChild className="bg-charcoal-700 text-silk hover:bg-charcoal-600">
-            <Link to={isAuthenticated ? '/socios/dashboard' : '/socios/login'}>
-              <User className="size-4" />
-              {isAuthenticated ? 'Mi Cuenta' : 'Acceso Socios'}
-            </Link>
-          </Button>
-        </div>
 
         <MobileNav />
       </div>

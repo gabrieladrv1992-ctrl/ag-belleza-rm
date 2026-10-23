@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
 import RootLayout from '@/components/layout/RootLayout'
-import ProtectedRoute from '@/components/layout/ProtectedRoute'
 import HomePage from '@/pages/HomePage'
 import QuienesSomosPage from '@/pages/QuienesSomosPage'
 import DirectorioPage from '@/pages/DirectorioPage'
@@ -9,8 +8,6 @@ import TalleresPage from '@/pages/TalleresPage'
 import BlogPage from '@/pages/BlogPage'
 import BlogPostPage from '@/pages/BlogPostPage'
 import ContactoPage from '@/pages/ContactoPage'
-import LoginPage from '@/pages/socios/LoginPage'
-import DashboardPage from '@/pages/socios/DashboardPage'
 import NotFoundPage from '@/pages/NotFoundPage'
 
 export const router = createBrowserRouter([
@@ -27,15 +24,6 @@ export const router = createBrowserRouter([
       { path: 'blog', element: <BlogPage /> },
       { path: 'blog/:slug', element: <BlogPostPage /> },
       { path: 'contacto', element: <ContactoPage /> },
-      { path: 'socios/login', element: <LoginPage /> },
-      {
-        path: 'socios/dashboard',
-        element: (
-          <ProtectedRoute>
-            <DashboardPage />
-          </ProtectedRoute>
-        ),
-      },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

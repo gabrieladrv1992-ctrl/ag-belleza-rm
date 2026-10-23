@@ -60,7 +60,7 @@ export default function Hero() {
             variant="outline"
             className="border-silk/40 bg-white/5 text-silk backdrop-blur hover:bg-white/15 hover:text-silk"
           >
-            <Link to="/socios/login">Acceso Socios</Link>
+            <Link to="/contacto">Contáctanos</Link>
           </Button>
         </motion.div>
       </div>

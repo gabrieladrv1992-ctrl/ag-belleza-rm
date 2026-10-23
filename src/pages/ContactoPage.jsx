@@ -9,7 +9,7 @@ export default function ContactoPage() {
       <PageHeader
         eyebrow="Contacto"
         title="Estamos para ayudarte"
-        description="Completa el formulario y un miembro de nuestro equipo se pondrá en contacto contigo."
+        description="Escríbenos al correo de la web o prepara un mensaje con el formulario."
       />
 
       <section className="mx-auto max-w-5xl px-6 py-16 grid gap-8 md:grid-cols-[1fr_1.4fr]">

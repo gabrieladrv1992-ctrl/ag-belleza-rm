@@ -10,24 +10,22 @@ import {
 } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import { navLinks, siteShortName } from '@/data/siteConfig'
-import { useAuth } from '@/context/AuthContext'
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
-  const { isAuthenticated } = useAuth()
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden" aria-label="Abrir menú">
+        <Button variant="ghost" size="icon" className="lg:hidden shrink-0" aria-label="Abrir menú">
           <Menu className="size-5" />
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="bg-silk">
         <SheetHeader>
           <SheetTitle className="flex items-center gap-2.5 font-serif text-charcoal-700">
-            <img src="/logo.png" alt={siteShortName} className="size-8 rounded-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt={siteShortName} className="size-8 rounded-full object-cover" />
             {siteShortName}
           </SheetTitle>
         </SheetHeader>
@@ -46,13 +44,6 @@ export default function MobileNav() {
               {link.label}
             </Link>
           ))}
-          <Link
-            to={isAuthenticated ? '/socios/dashboard' : '/socios/login'}
-            onClick={() => setOpen(false)}
-            className="mt-2 rounded-md bg-charcoal-700 px-3 py-2.5 text-center font-medium text-silk hover:bg-charcoal-600"
-          >
-            {isAuthenticated ? 'Mi Cuenta' : 'Acceso Socios'}
-          </Link>
         </nav>
       </SheetContent>
     </Sheet>

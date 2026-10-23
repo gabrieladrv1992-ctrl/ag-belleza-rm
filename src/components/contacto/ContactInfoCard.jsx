@@ -16,10 +16,12 @@ export default function ContactInfoCard() {
         Escríbenos por cualquier consulta sobre asociación, talleres o convenios gremiales.
       </p>
       <ul className="mt-6 space-y-4 text-sm">
-        {items.map(({ icon: Icon, label }) => (
+        {items.filter((item) => item.label).map(({ icon: Icon, label }) => (
           <li key={label} className="flex items-start gap-3">
             <Icon className="size-4 mt-0.5 shrink-0 text-champagne-400" />
-            <span className="text-nude-100/90">{label}</span>
+            {label === contactInfo.email ? (
+              <a href={`mailto:${contactInfo.email}`} className="break-all text-nude-100/90 underline underline-offset-4">{label}</a>
+            ) : <span className="text-nude-100/90">{label}</span>}
           </li>
         ))}
       </ul>

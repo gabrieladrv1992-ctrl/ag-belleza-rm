@@ -14,6 +14,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { contactSchema } from '@/lib/schemas'
+import { contactInfo } from '@/data/siteConfig'
 
 export default function ContactForm() {
   const form = useForm({
@@ -22,16 +23,19 @@ export default function ContactForm() {
   })
 
   function onSubmit(values) {
-    console.log('Formulario de contacto (mock):', values)
-    toast.success('Mensaje enviado con éxito', {
-      description: 'Nos pondremos en contacto contigo a la brevedad.',
+    const body = `Nombre: ${values.nombre}\nCorreo: ${values.email}\nTeléfono: ${values.telefono}\n\n${values.mensaje}`
+    window.location.href = `mailto:${contactInfo.email}?subject=${encodeURIComponent(values.asunto)}&body=${encodeURIComponent(body)}`
+    toast.info('El mensaje todavía no se ha enviado.', {
+      description: 'Revisa el borrador en tu aplicación de correo y envíalo desde allí. Si no se abre, escribe directamente al correo indicado.',
     })
-    form.reset()
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+      <form noValidate onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+        <p className="text-sm text-charcoal-500">
+          Este formulario prepara un borrador en tu aplicación de correo. No realiza un envío automático y conserva tus datos en pantalla.
+        </p>
         <div className="grid gap-5 sm:grid-cols-2">
           <FormField
             control={form.control}
@@ -112,7 +116,7 @@ export default function ContactForm() {
           className="w-full bg-charcoal-700 hover:bg-charcoal-600 sm:w-auto"
         >
           <Send className="size-4" />
-          Enviar mensaje
+          Preparar correo
         </Button>
       </form>
     </Form>

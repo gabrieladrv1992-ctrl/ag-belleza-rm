@@ -13,15 +13,15 @@ export const navLinks = [
 ]
 
 export const contactInfo = {
-  direccion: 'Av. Providencia 1234, Of. 56, Providencia, Santiago',
-  telefono: '+56 2 2345 6789',
-  whatsapp: '+56 9 8765 4321',
-  email: 'contacto@agbellezarm.cl',
-  horario: 'Lunes a viernes, 9:30 - 18:30 hrs',
+  direccion: '',
+  telefono: '',
+  whatsapp: '',
+  email: 'web.gremiobellezarm@gmail.com',
+  horario: '',
   redes: {
-    instagram: 'https://instagram.com',
-    facebook: 'https://facebook.com',
-    linkedin: 'https://linkedin.com',
+    instagram: '',
+    facebook: '',
+    linkedin: '',
   },
 }
 
