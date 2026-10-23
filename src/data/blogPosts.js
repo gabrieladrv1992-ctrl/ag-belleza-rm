@@ -34,7 +34,7 @@ const posts = [
   {
     id: 3,
     slug: 'balance-primer-semestre-2026',
-    titulo: 'Balance del primer semestre 2026: más de 200 nuevos socios',
+    titulo: 'Balance del primer semestre.',
     resumen: 'La asociación reporta un crecimiento sostenido y la incorporación de nuevas comunas al directorio gremial.',
     contenido: [
       'Durante el primer semestre de 2026, la Asociación Gremial incorporó a más de 200 nuevos profesionales de la belleza, consolidando su presencia en comunas como Maipú, La Florida y Puente Alto.',

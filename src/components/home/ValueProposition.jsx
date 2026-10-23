@@ -21,7 +21,7 @@ const pilares = [
   {
     icon: Handshake,
     title: 'Beneficios y Convenios',
-    description: 'Descuentos en insumos, asesoría y apoyo a la formalización de tu negocio.',
+    description: 'Descuentos en insumos de laboratorios, celebraciones en comunidad, premiaciones.',
   },
 ]
 
@@ -31,7 +31,7 @@ export default function ValueProposition() {
       <SectionTitle
         eyebrow="Por qué asociarte"
         title="Un gremio pensado para tu desarrollo profesional"
-        description="Acompañamos a cosmetólogas, estilistas, barberos, maquilladoras y especialistas de bienestar en cada etapa de su carrera."
+        description="Acompañamos a estilistas, barberos, manicuristas, masajistas, cosmetólogas y especialistas de bienestar en cada etapa de su carrera."
       />
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
