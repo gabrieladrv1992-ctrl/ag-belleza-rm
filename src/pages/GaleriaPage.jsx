@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import PageHeader from '@/components/common/PageHeader'
 import GalleryGrid from '@/components/galeria/GalleryGrid'
 import Lightbox from '@/components/galeria/Lightbox'
@@ -12,6 +12,7 @@ const TODAS = 'Todas'
 export default function GaleriaPage() {
   const [categoria, setCategoria] = useState(TODAS)
   const [activeIndex, setActiveIndex] = useState(null)
+  const returnFocusRef = useRef(null)
 
   const items = useMemo(
     () => (categoria === TODAS ? galeria : galeria.filter((item) => item.categoria === categoria)),
@@ -34,6 +35,7 @@ export default function GaleriaPage() {
               size="sm"
               variant="outline"
               onClick={() => setCategoria(cat)}
+              aria-pressed={categoria === cat}
               className={cn(
                 'rounded-full border-nude-300',
                 categoria === cat && 'bg-charcoal-700 text-silk hover:bg-charcoal-600 hover:text-silk'
@@ -48,7 +50,10 @@ export default function GaleriaPage() {
           {items.length === 0 ? (
             <EmptyState title="No hay fotos en esta categoría" />
           ) : (
-            <GalleryGrid items={items} onSelect={setActiveIndex} />
+            <GalleryGrid items={items} onSelect={(index, trigger) => {
+              returnFocusRef.current = trigger
+              setActiveIndex(index)
+            }} />
           )}
         </div>
       </section>
@@ -58,6 +63,7 @@ export default function GaleriaPage() {
         activeIndex={activeIndex}
         onClose={() => setActiveIndex(null)}
         onNavigate={setActiveIndex}
+        returnFocusRef={returnFocusRef}
       />
     </>
   )

@@ -26,7 +26,7 @@ export default function FilterBar({
       />
 
       <Select value={categoria} onValueChange={onCategoriaChange}>
-        <SelectTrigger className="h-11 w-full bg-white">
+        <SelectTrigger aria-label="Filtrar por categoría" className="h-11 w-full bg-white">
           <SelectValue placeholder="Categoría" />
         </SelectTrigger>
         <SelectContent>
@@ -40,7 +40,7 @@ export default function FilterBar({
       </Select>
 
       <Select value={comuna} onValueChange={onComunaChange}>
-        <SelectTrigger className="h-11 w-full bg-white">
+        <SelectTrigger aria-label="Filtrar por comuna" className="h-11 w-full bg-white">
           <SelectValue placeholder="Comuna" />
         </SelectTrigger>
         <SelectContent>

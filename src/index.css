@@ -108,6 +108,47 @@ body {
   margin: 0;
 }
 
+:where(a, button, input, textarea, [role="combobox"]):focus-visible {
+  outline: 3px solid #C91A25;
+  outline-offset: 4px;
+}
+
+:where(a, button, input, textarea, [tabindex]) {
+  scroll-margin-block: 9rem 2rem;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-200%);
+  background: #FFFFFF;
+  color: #111111;
+  padding: 0.75rem 1rem;
+  border: 2px solid #111111;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+[data-slot="sheet-content"],
+[data-slot="dialog-content"] {
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 h1, h2, h3, h4 {
   @apply font-serif;
 }

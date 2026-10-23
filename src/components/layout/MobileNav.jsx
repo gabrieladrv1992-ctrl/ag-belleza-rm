@@ -22,7 +22,7 @@ export default function MobileNav() {
           <Menu className="size-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="bg-silk">
+      <SheetContent side="right" aria-describedby={undefined} className="bg-silk">
         <SheetHeader>
           <SheetTitle className="flex items-center gap-2.5 font-serif text-charcoal-700">
             <img src={`${import.meta.env.BASE_URL}logo.png`} alt={siteShortName} className="size-8 rounded-full object-cover" />

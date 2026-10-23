@@ -66,8 +66,9 @@ export default function Hero() {
       </div>
 
       <motion.div
+        aria-hidden="true"
         animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+        transition={{ duration: 1.8, repeat: 1, ease: 'easeInOut' }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-silk/70"
       >
         <ChevronDown className="size-6" />

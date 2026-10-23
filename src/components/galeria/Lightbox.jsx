@@ -1,5 +1,5 @@
 import { CalendarDays, ChevronLeft, ChevronRight, MapPin, X } from 'lucide-react'
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import { motion, AnimatePresence } from 'framer-motion'
 
 function formatFecha(fecha) {
@@ -10,7 +10,7 @@ function formatFecha(fecha) {
   })
 }
 
-export default function Lightbox({ items, activeIndex, onClose, onNavigate }) {
+export default function Lightbox({ items, activeIndex, onClose, onNavigate, returnFocusRef }) {
   const open = activeIndex !== null
   const item = open ? items[activeIndex] : null
 
@@ -23,6 +23,10 @@ export default function Lightbox({ items, activeIndex, onClose, onNavigate }) {
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
       <DialogContent
         showCloseButton={false}
+        onCloseAutoFocus={(event) => {
+          event.preventDefault()
+          returnFocusRef.current?.focus()
+        }}
         className="max-w-4xl border-none bg-charcoal-900 p-0 overflow-hidden"
       >
         <DialogTitle className="sr-only">{item?.titulo}</DialogTitle>
@@ -66,7 +70,7 @@ export default function Lightbox({ items, activeIndex, onClose, onNavigate }) {
             <div className="bg-charcoal-800 p-5 text-silk">
               <p className="text-xs uppercase tracking-widest text-champagne-400">{item.categoria}</p>
               <h3 className="mt-1 font-serif text-xl font-semibold">{item.titulo}</h3>
-              <p className="mt-1 text-sm text-nude-200/80">{item.descripcion}</p>
+              <DialogDescription className="mt-1 text-sm text-nude-200/80">{item.descripcion}</DialogDescription>
               <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-nude-200/60">
                 <span className="flex items-center gap-1.5">
                   <CalendarDays className="size-3.5" />
