@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import MobileNav from '@/components/layout/MobileNav'
 import { navLinks, siteFullName } from '@/data/siteConfig'
 import { cn } from '@/lib/utils'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const isHome = useLocation().pathname === '/'
 
   useEffect(() => {
     function onScroll() {
@@ -19,21 +20,20 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-[background-color,box-shadow,backdrop-filter,border-color] duration-300',
-        scrolled
-          ? 'bg-silk/95 shadow-sm backdrop-blur border-b border-nude-200'
-          : 'bg-transparent'
+        'site-header',
+        isHome && 'site-header-home',
+        scrolled && 'site-header-scrolled'
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex min-w-0 items-center gap-2.5 font-serif text-sm font-semibold leading-tight text-charcoal-700 sm:text-base">
-          <img src={`${import.meta.env.BASE_URL}logo.png`} alt={siteFullName} className="size-12 shrink-0 rounded-full object-cover" />
-          <span className="max-w-[14rem] lg:max-w-[20rem]">
+      <div className="site-header-inner">
+        <Link to="/" className="site-brand" aria-label={siteFullName}>
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" width="128" height="128" className="site-logo" />
+          <span className="site-brand-name">
             {siteFullName.replace('Región Metropolitana', 'Región Metropolitana')}
           </span>
         </Link>
 
-        <nav aria-label="Navegación principal" className="hidden lg:flex shrink-0 items-center gap-1">
+        <nav aria-label="Navegación principal" className="hidden xl:flex shrink-0 items-center gap-5">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}
@@ -41,10 +41,10 @@ export default function Navbar() {
               end={link.to === '/'}
               className={({ isActive }) =>
                 cn(
-                  'rounded-full px-3 py-2 text-sm font-medium transition-colors',
+                  'site-nav-link',
                   isActive
-                    ? 'bg-crimson-50 text-crimson-600'
-                    : 'text-charcoal-500 hover:text-charcoal-700'
+                    ? 'site-nav-link-active'
+                    : ''
                 )
               }
             >

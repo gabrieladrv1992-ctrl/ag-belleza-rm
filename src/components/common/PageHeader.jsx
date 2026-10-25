@@ -2,8 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function PageHeader({ eyebrow, title, description }) {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-nude-100 via-silk to-champagne-100 py-20 md:py-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(212,175,55,0.15),transparent_55%)]" />
+    <section className="relative overflow-hidden bg-background py-20 md:py-28">
       <div className="relative mx-auto max-w-5xl px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -11,7 +10,7 @@ export default function PageHeader({ eyebrow, title, description }) {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
           {eyebrow && (
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-champagne-600">
+            <span className="text-sm font-medium text-primary">
               {eyebrow}
             </span>
           )}

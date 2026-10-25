@@ -1,8 +1,8 @@
 const PALETTE = [
-  { bg: 'F0E2D0', fg: '1C1C1C' },
-  { bg: '1C1C1C', fg: 'EBD8A0' },
-  { bg: 'E0C572', fg: '1C1C1C' },
-  { bg: 'E6CFB4', fg: '2E2E2E' },
+  { bg: 'E5E8E4', fg: '810100' },
+  { bg: '810100', fg: 'F5F8F6' },
+  { bg: '8A8A83', fg: '030301' },
+  { bg: '030301', fg: 'F5F8F6' },
 ]
 
 export function placeholderTile(text, index = 0, size = '900x1100') {

@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-2.5 font-serif text-xl font-semibold text-silk">
-            <img src={`${import.meta.env.BASE_URL}logo.png`} alt={siteShortName} className="size-10 rounded-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" width="104" height="104" className="size-26 rounded-full object-contain" />
             {siteShortName}
           </div>
           <p className="mt-3 text-sm leading-relaxed text-nude-200/80 max-w-xs">

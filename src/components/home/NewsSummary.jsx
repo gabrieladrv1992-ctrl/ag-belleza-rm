@@ -11,10 +11,11 @@ export default function NewsSummary() {
     .slice(0, 3)
 
   return (
-    <section className="bg-nude-50/60 py-24">
+    <section className="home-news bg-secondary/50 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <SectionTitle
           eyebrow="Actualidad"
+          align="left"
           title="Últimas noticias del gremio"
           description="Mantente al día con las novedades, convenios y normativas que afectan a nuestros socios."
         />

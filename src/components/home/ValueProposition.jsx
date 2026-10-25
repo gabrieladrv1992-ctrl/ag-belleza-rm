@@ -1,5 +1,4 @@
 import { GraduationCap, ShieldCheck, Users, Handshake } from 'lucide-react'
-import FadeInWhenVisible from '@/components/animations/FadeInWhenVisible'
 import SectionTitle from '@/components/common/SectionTitle'
 
 const pilares = [
@@ -27,26 +26,25 @@ const pilares = [
 
 export default function ValueProposition() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
+    <section className="home-values mx-auto max-w-7xl px-6 py-24 md:py-32">
       <SectionTitle
         eyebrow="Por qué asociarte"
+        align="left"
         title="Un gremio pensado para tu desarrollo profesional"
         description="Acompañamos a estilistas, barberos, manicuristas, masajistas, cosmetólogas y especialistas de bienestar en cada etapa de su carrera."
       />
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {pilares.map((pilar, index) => (
-          <FadeInWhenVisible key={pilar.title} delay={index * 0.1}>
-            <div className="h-full rounded-2xl border border-nude-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-              <div className="flex size-11 items-center justify-center rounded-full bg-gold-gradient">
-                <pilar.icon className="size-5 text-charcoal-800" />
+      <div className="mt-16 grid gap-x-12 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
+        {pilares.map((pilar) => (
+            <div key={pilar.title} className="h-full">
+              <div className="mb-6 text-primary">
+                <pilar.icon className="size-7" strokeWidth={1.4} aria-hidden="true" />
               </div>
               <h3 className="mt-4 font-serif text-lg font-semibold text-charcoal-700">
                 {pilar.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-charcoal-400">{pilar.description}</p>
             </div>
-          </FadeInWhenVisible>
         ))}
       </div>
     </section>

@@ -18,14 +18,14 @@ export default function MobileNav() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="lg:hidden shrink-0" aria-label="Abrir menú">
+        <Button variant="ghost" size="icon" className="xl:hidden shrink-0 text-foreground" aria-label="Abrir menú">
           <Menu className="size-5" />
         </Button>
       </SheetTrigger>
       <SheetContent side="right" aria-describedby={undefined} className="bg-silk">
         <SheetHeader>
           <SheetTitle className="flex items-center gap-2.5 font-serif text-charcoal-700">
-            <img src={`${import.meta.env.BASE_URL}logo.png`} alt={siteShortName} className="size-8 rounded-full object-cover" />
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" width="88" height="88" className="size-22 rounded-full object-contain" />
             {siteShortName}
           </SheetTitle>
         </SheetHeader>
