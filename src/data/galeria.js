@@ -1,4 +1,4 @@
-import { placeholderTile } from '@/lib/placeholder'
+import { placeholderColors, placeholderTile } from '@/lib/placeholder'
 
 export const galeriaCategorias = [
   'Talleres',
@@ -26,5 +26,7 @@ const items = [
 
 export const galeria = items.map((item, index) => ({
   ...item,
-  imagen: placeholderTile(item.titulo, index),
+  imagen: placeholderTile('', index),
+  esEjemplo: true,
+  colorTexto: `#${placeholderColors(index).fg}`,
 }))

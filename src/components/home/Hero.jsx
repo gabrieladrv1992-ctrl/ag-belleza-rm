@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 export default function Hero() {
   return (
     <section className="home-hero" aria-labelledby="hero-title">
-      <img src="https://picsum.photos/id/1027/1400/1800" alt="" width="1400" height="1800" fetchPriority="high" className="home-hero-image" />
+      <img src={`${import.meta.env.BASE_URL}portada-carmesi.png`} alt="" width="1672" height="941" fetchPriority="high" className="home-hero-image" />
       <div className="home-hero-blend" aria-hidden="true" />
       <div className="home-hero-inner">
         <div className="home-hero-copy">
