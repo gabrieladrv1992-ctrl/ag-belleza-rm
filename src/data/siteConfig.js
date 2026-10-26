@@ -16,7 +16,7 @@ export const contactInfo = {
   direccion: '',
   telefono: '',
   whatsapp: '',
-  email: 'web.gremiobellezarm@gmail.com',
+  email: 'asociacion.gremial.probelleza.rm@gmail.com',
   horario: '',
   redes: {
     instagram: '',

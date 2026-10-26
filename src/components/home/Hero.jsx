@@ -11,8 +11,7 @@ export default function Hero() {
           <p className="hero-location">Región Metropolitana · Chile</p>
           <h1 id="hero-title">El gremio que impulsa a los profesionales de la belleza</h1>
           <p className="hero-description">
-            Formación continua, comunidad y representación gremial para cosmetólogas, estilistas,
-            barberos, maquilladoras y especialistas en bienestar de toda la Región Metropolitana.
+            estilistas, barberos, manicuristas, masajistas, cosmetólogas, lashistas y especialistas en bienestar.
           </p>
           <div className="hero-actions">
             <Button asChild size="lg" className="hero-primary"><Link to="/quienes-somos">Conócenos</Link></Button>

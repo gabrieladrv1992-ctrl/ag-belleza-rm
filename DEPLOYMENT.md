@@ -8,7 +8,7 @@ El área de socios no está registrada en el router ni incluida en la aplicació
 
 ## Contacto
 
-Correo: `web.gremiobellezarm@gmail.com`.
+Correo: `asociacion.gremial.probelleza.rm@gmail.com`.
 
 El formulario valida los campos y prepara un enlace `mailto:`. Requiere una aplicación de correo configurada y que el visitante envíe el borrador. No envía automáticamente, no registra datos en un servidor y no confirma recepción. El envío automático queda pendiente de elegir y configurar un proveedor de correo y probar la recepción. No guardar contraseñas de Gmail en el código ni en variables `VITE_*`.
 
