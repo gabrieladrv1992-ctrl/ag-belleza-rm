@@ -1,62 +1,33 @@
 import PageHeader from '@/components/common/PageHeader'
-import FilterBar from '@/components/directorio/FilterBar'
-import SocioCard from '@/components/directorio/SocioCard'
-import EmptyState from '@/components/common/EmptyState'
-import FadeInWhenVisible from '@/components/animations/FadeInWhenVisible'
-import { useDirectorioFilter } from '@/hooks/useDirectorioFilter'
-import { socios } from '@/data/socios'
+import { miembrosDirectorio } from '@/data/directorio'
 
 export default function DirectorioPage() {
-  const {
-    query,
-    setQuery,
-    categoria,
-    setCategoria,
-    comuna,
-    setComuna,
-    resultados,
-    TODAS,
-  } = useDirectorioFilter(socios)
-
   return (
     <>
-      <PageHeader
-        eyebrow="Directorio"
-        title="Encuentra a nuestros profesionales asociados"
-        description="Busca por nombre, filtra por categoría o comuna y conecta con profesionales certificados del gremio."
-      />
+      <PageHeader title="Miembros del Directorio" />
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <FilterBar
-          query={query}
-          onQueryChange={setQuery}
-          categoria={categoria}
-          onCategoriaChange={setCategoria}
-          comuna={comuna}
-          onComunaChange={setComuna}
-          todas={TODAS}
-        />
-
-        <p className="mt-6 text-sm text-charcoal-400">
-          {resultados.length} {resultados.length === 1 ? 'profesional encontrado' : 'profesionales encontrados'}
-        </p>
-
-        <div className="mt-6">
-          {resultados.length === 0 ? (
-            <EmptyState
-              title="No encontramos socios con esos filtros"
-              description="Intenta ajustar la búsqueda o limpiar los filtros de categoría y comuna."
-            />
-          ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {resultados.map((socio, index) => (
-                <FadeInWhenVisible key={socio.id} delay={Math.min(index * 0.05, 0.4)}>
-                  <SocioCard socio={socio} />
-                </FadeInWhenVisible>
-              ))}
-            </div>
-          )}
-        </div>
+      <section className="mx-auto max-w-7xl px-6 pb-16" aria-label="Integrantes del Directorio">
+        {miembrosDirectorio.length === 0 ? (
+          <p className="text-center text-charcoal-400">La nómina del Directorio está pendiente de publicación.</p>
+        ) : (
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {miembrosDirectorio.map(({ id, nombre, cargo, profesion, foto }) => (
+              <li key={id} className="flex flex-col items-center gap-3 rounded-2xl border border-nude-200 bg-white p-6 text-center">
+                {foto && <img
+                  src={`${import.meta.env.BASE_URL}${foto}`}
+                  alt=""
+                  width="112"
+                  height="112"
+                  loading="lazy"
+                  className="size-28 rounded-full object-cover"
+                />}
+                <h2 className="font-serif text-xl font-semibold text-foreground">{nombre}</h2>
+                <p className="text-charcoal-400">{cargo}</p>
+                {profesion && <p className="text-charcoal-400">{profesion}</p>}
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     </>
   )
