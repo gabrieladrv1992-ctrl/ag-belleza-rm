@@ -32,21 +32,6 @@ const posts = [
     tiempoLectura: 3,
   },
   {
-    id: 3,
-    slug: 'balance-primer-semestre-2026',
-    titulo: 'Balance del primer semestre.',
-    resumen: 'La asociación reporta un crecimiento sostenido y la incorporación de nuevas comunas al directorio gremial.',
-    contenido: [
-      'Durante el primer semestre de 2026, la Asociación Gremial incorporó a más de 200 nuevos profesionales de la belleza, consolidando su presencia en comunas como Maipú, La Florida y Puente Alto.',
-      'El crecimiento se atribuye a la difusión de los talleres de capacitación gratuitos y a los convenios de formalización tributaria impulsados junto al Ministerio de Economía.',
-      'Se espera que para fines de 2026 la asociación supere los 800 socios activos en la Región Metropolitana.',
-    ],
-    categoria: 'Institucional',
-    autor: 'Directiva AG Belleza RM',
-    fecha: '2026-07-02',
-    tiempoLectura: 3,
-  },
-  {
     id: 4,
     slug: 'tendencias-beauty-2026',
     titulo: 'Tendencias Beauty 2026: minimalismo, skinimalism y color natural',
@@ -93,7 +78,7 @@ const posts = [
   },
 ]
 
-export const blogPosts = posts.map((post, index) => ({
+export const blogPosts = posts.map((post) => ({
   ...post,
-  imagen: placeholderTile(post.categoria, index, '900x600'),
+  imagen: placeholderTile(post.categoria, post.id - 1, '900x600'),
 }))

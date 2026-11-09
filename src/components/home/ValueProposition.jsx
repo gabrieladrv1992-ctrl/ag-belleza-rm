@@ -31,7 +31,7 @@ export default function ValueProposition() {
         eyebrow="Por qué asociarte"
         align="left"
         title="Un gremio pensado para tu desarrollo profesional"
-        description="Acompañamos a estilistas, barberos, manicuristas, masajistas, cosmetólogas y especialistas de bienestar en cada etapa de su carrera."
+        description="Formamos una comunidad de profesionales de la belleza para compartir experiencias y seguir desarrollando las habilidades que requiere nuestro oficio."
       />
 
       <div className="mt-16 grid gap-x-12 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
