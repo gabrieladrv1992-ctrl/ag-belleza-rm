@@ -19,8 +19,8 @@ export const contactInfo = {
   email: 'asociacion.gremial.probelleza.rm@gmail.com',
   horario: '',
   redes: {
-    instagram: '',
-    facebook: '',
+    instagram: 'https://www.instagram.com/agremialrmet?obrf=MWJhMmJwYWR5NmJ3eg==',
+    facebook: 'https://www.facebook.com/share/1EVqChsTJS/',
     linkedin: '',
   },
 }
