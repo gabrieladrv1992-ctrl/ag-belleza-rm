@@ -10,18 +10,18 @@ export default function DirectorioPage() {
         {miembrosDirectorio.length === 0 ? (
           <p className="text-center text-charcoal-400">La nómina del Directorio está pendiente de publicación.</p>
         ) : (
-          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <ul className="mx-auto grid max-w-4xl grid-cols-4 gap-3 sm:gap-6">
             {miembrosDirectorio.map(({ id, nombre, cargo, profesion, foto }) => (
-              <li key={id} className="flex flex-col items-center gap-3 rounded-2xl border border-nude-200 bg-white p-6 text-center">
+              <li key={id} className="col-span-2 flex min-w-0 flex-col items-center gap-3 rounded-2xl border border-nude-200 bg-white p-3 text-center sm:p-6 [&:last-child:nth-child(odd)]:col-start-2">
                 {foto && <img
                   src={`${import.meta.env.BASE_URL}${foto}`}
                   alt=""
-                  width="112"
-                  height="112"
+                  width="224"
+                  height="224"
                   loading="lazy"
-                  className="size-28 rounded-full object-cover"
+                  className="aspect-square w-full max-w-56 rounded-full object-cover"
                 />}
-                <h2 className="font-serif text-xl font-semibold text-foreground">{nombre}</h2>
+                <h2 className="w-full break-words font-serif text-base font-semibold text-foreground sm:text-xl">{nombre}</h2>
                 <p className="text-charcoal-400">{cargo}</p>
                 {profesion && <p className="text-charcoal-400">{profesion}</p>}
               </li>
