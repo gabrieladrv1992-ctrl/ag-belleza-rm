@@ -62,6 +62,14 @@ export default function BlogPostPage() {
             <p key={index}>{parrafo}</p>
           ))}
         </div>
+        {post.fuentes && (
+          <section className="mt-10" aria-labelledby="fuentes-title">
+            <h2 id="fuentes-title" className="font-serif text-2xl font-semibold">Fuentes oficiales</h2>
+            <ul className="mt-4 space-y-3">
+              {post.fuentes.map((fuente) => <li key={fuente.url}><a className="break-words text-primary underline underline-offset-4" href={fuente.url}>{fuente.titulo}</a></li>)}
+            </ul>
+          </section>
+        )}
       </FadeInWhenVisible>
     </article>
   )

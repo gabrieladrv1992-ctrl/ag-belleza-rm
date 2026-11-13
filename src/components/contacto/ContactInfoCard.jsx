@@ -25,6 +25,7 @@ export default function ContactInfoCard() {
           </li>
         ))}
       </ul>
+      <p className="mt-6 text-sm text-nude-100/90">WhatsApp de ejemplo: +56 9 1234 5678. Número pendiente de confirmación; por ahora escríbenos al correo indicado.</p>
     </div>
   )
 }

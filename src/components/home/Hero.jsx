@@ -35,7 +35,7 @@ export default function Hero() {
           </p>
           <div className="hero-actions">
             <Button asChild size="lg" className="hero-primary"><Link to="/quienes-somos">Conócenos</Link></Button>
-            <Button asChild size="lg" variant="outline" className="hero-secondary"><Link to="/contacto">Contáctanos</Link></Button>
+            <Button asChild size="lg" variant="outline" className="hero-secondary"><Link to="/contacto">Cómo asociarme</Link></Button>
           </div>
           <ul className="mt-5 flex items-center gap-3" aria-label="Redes sociales">
             {socialProfiles.map(({ name, key }) => {
